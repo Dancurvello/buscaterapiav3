@@ -1,0 +1,4 @@
+Para resolver o problema do lighthouse " o manifesto não tem um ícone mascarável ", foi adicionado ao manifest.json
+essa propriedade nos 2 ícones obs: os 2 icons (logo192 e logo512 estão com fundo transparente e no tamanho adequado) 
+
+"purpose": "any maskable"

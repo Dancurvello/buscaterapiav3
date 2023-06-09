@@ -277,7 +277,7 @@ function ModalLogin({ isOpen, closeModal }) {
                 <div>
                 <GoogleButton>
                 <GoogleIcon src='../../assets/google-removebg-preview.png' alt='googleicon'/>
-                Entrar com o Google
+                Entrar com o Google fix - login
                 </GoogleButton>
                   </div> 
                   <BlackLine />

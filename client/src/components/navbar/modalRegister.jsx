@@ -180,7 +180,7 @@ function ModalRegister({ isOpen, closeModal }) {
             {fieldEmptyConfirmPassword && <ErrorMessage>{fieldEmptyConfirmPassword}</ErrorMessage>}
             {passwordError && <ErrorMessage>{passwordError}</ErrorMessage>}
             <div style={{ textAlign: 'center' }}>
-            <StyledButton onClick={register}>CADASTRAR</StyledButton>
+            <StyledButton onClick={register}>CADASTRAR fixlogin</StyledButton>
             </div>
           </div>
         </Modal>

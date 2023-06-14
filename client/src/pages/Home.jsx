@@ -10,6 +10,8 @@ const Home = () => {
 
     Axios.defaults.withCredentials = true;
 
+    const [loginStatus, setLoginStatus] = useState('');
+
     useEffect(()=> {
         Axios.get("http://localhost:3001/login").then ((response)=>{
             if (response.data.loggedIn === true) {
@@ -25,7 +27,7 @@ const Home = () => {
         })
     }, [])
 
-    const [loginStatus, setLoginStatus] = useState('');
+    
 
     return (
         <>

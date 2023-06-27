@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import { MdClose } from 'react-icons/md';
 import FieldInput from './fieldInput';
-import Axios from 'axios'
 import ModalRegister from './modalRegister';
+import { login } from '../../api';
 
 const BlackLine = styled.div`
   height: 1px;
@@ -121,7 +121,7 @@ const H1 = styled.h1`
 
 function ModalLogin({ isOpen, closeModal }) {
 
-  const login = () => {
+  const handleLogin = async () => {
 
     let errorCheck = false;
 
@@ -145,28 +145,12 @@ function ModalLogin({ isOpen, closeModal }) {
   
 
   if (errorCheck === false) {
-    Axios.post("http://localhost:3001/login", {
-      username: username,
-      password: password,
-    })
-      .then((response) => {
-
-        if (response.data.message) {
-          setLoginStatus(response.data.message)
-
-        } else {
-          setLoginStatus(response.data[0].username)
-        }
-        
-      })
-      .catch((error) => {
-        console.log("Error:", error.message);
-      });
+    
+      const response = await login(username, password)
+      setLoginStatus(response)
       console.log('login realizado!');      
       setFieldEmptyUsername('')
-      setFieldEmptyPassword('')
-      
-    
+      setFieldEmptyPassword('')   
 
   }
 };
@@ -269,7 +253,7 @@ function ModalLogin({ isOpen, closeModal }) {
                 <ButtonForgotPassword>Esqueceu a senha?</ButtonForgotPassword>
                 </div>
               <div style={divButtonStyle}>
-                <StyledButton onClick={login}>ENTRAR</StyledButton>
+                <StyledButton onClick={handleLogin}>ENTRAR</StyledButton>
                   {loginStatus && <div style={divIncorretLogin}>{loginStatus}</div>}    
               </div>
               <div>
